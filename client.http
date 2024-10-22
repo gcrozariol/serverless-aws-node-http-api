@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:3000
+@productId = {{create_product.response.body.product.id}}
+
+# @name testing_serverless_framework
+GET {{baseUrl}}
+content-type: application/json
+
+###
+
+# @name create_product
+POST {{baseUrl}}/products
+content-type: application/json
+
+{
+  "name": "Apple",
+  "description": "A healthy fruit",
+  "price": 1
+}
+
+###
+
+# @name get_product_by_id
+GET {{baseUrl}}/products/{{productId}}
+content-type: application/json
+
+###
+
+# @name get_products
+GET {{baseUrl}}/products
+content-type: application/json

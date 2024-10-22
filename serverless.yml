@@ -1,0 +1,23 @@
+org: gcrozariol
+app: app
+service: aws-node-http-api
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  profile: gcrozariol
+  region: us-east-2
+
+functions:
+  hello:
+    handler: src/server.server
+    events:
+      - httpApi: "*"
+
+package:
+  exclude:
+    - node_modules/**

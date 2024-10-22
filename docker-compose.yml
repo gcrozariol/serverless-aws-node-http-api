@@ -1,0 +1,15 @@
+name: baseline
+
+services:
+  db:
+    container_name: baseline-db
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+      PGDATA: /data/postgres
+    volumes:
+      - ./data/pg:/data/postgres
